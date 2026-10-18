@@ -210,8 +210,8 @@ public class MobCatcherInventoryControl extends UpgradeInventoryControlBase {
 		}
 
 		Vector3f translation = new Vector3f(0.0F, renderState.boundingBoxHeight / 2.0F, 0.0F);
-		int screenX = x + screen.getGuiLeft();
-		int screenY = y + screen.getGuiTop();
+		int screenX = x + screen.getLeftPos();
+		int screenY = y + screen.getTopPos();
 		guiGraphics.entity(renderState, getRenderScale(entity, width, height), translation, new Quaternionf(ENTITY_RENDER_ANGLE),
 				new Quaternionf(ENTITY_CAMERA_ANGLE), screenX, screenY, screenX + width, screenY + height);
 	}
@@ -323,8 +323,8 @@ public class MobCatcherInventoryControl extends UpgradeInventoryControlBase {
 				}
 
 				Slot slot = menu.getSlot(slotIndex);
-				int x = slot.x + screen.getGuiLeft() - 1;
-				int y = slot.y + screen.getGuiTop() - 1;
+				int x = slot.x + screen.getLeftPos() - 1;
+				int y = slot.y + screen.getTopPos() - 1;
 				if (isSlotVisible(slot) && mouseX >= x && mouseX < x + 18 && mouseY >= y && mouseY < y + 18) {
 					return true;
 				}

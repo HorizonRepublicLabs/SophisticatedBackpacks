@@ -84,7 +84,7 @@ public class AnvilUpgradeTab extends UpgradeSettingsTab<AnvilUpgradeContainer> {
 	}
 
 	private void renderSlotBg(GuiGraphicsExtractor guiGraphics, Slot slot) {
-		GuiHelper.renderSlotsBackground(guiGraphics, slot.x + screen.getGuiLeft() - 1, slot.y + screen.getGuiTop() - 1, 1, 1);
+		GuiHelper.renderSlotsBackground(guiGraphics, slot.x + screen.getLeftPos() - 1, slot.y + screen.getTopPos() - 1, 1, 1);
 	}
 
 	@Override
@@ -98,11 +98,11 @@ public class AnvilUpgradeTab extends UpgradeSettingsTab<AnvilUpgradeContainer> {
 		renderCost(guiGraphics, x + 3, y + 62);
 
 		Slot firstSlot = getContainer().getSlots().get(0);
-		int inputSlotsY = firstSlot.y + screen.getGuiTop();
-		int firstInputSlotX = firstSlot.x + screen.getGuiLeft();
-		int secondInputSlotX = getContainer().getSlots().get(1).x + screen.getGuiLeft();
+		int inputSlotsY = firstSlot.y + screen.getTopPos();
+		int firstInputSlotX = firstSlot.x + screen.getLeftPos();
+		int secondInputSlotX = getContainer().getSlots().get(1).x + screen.getLeftPos();
 		Slot resultSlot = getContainer().getSlots().get(2);
-		int resultSlotX = resultSlot.x + screen.getGuiLeft();
+		int resultSlotX = resultSlot.x + screen.getLeftPos();
 
 		GuiHelper.blit(guiGraphics, firstInputSlotX + 18 + (secondInputSlotX - (firstInputSlotX + 18)) / 2 - PLUS_SIGN.getWidth() / 2 - 1, inputSlotsY + 2,
 				PLUS_SIGN);
@@ -118,16 +118,16 @@ public class AnvilUpgradeTab extends UpgradeSettingsTab<AnvilUpgradeContainer> {
 	@Override
 	protected void moveSlotsToTab() {
 		Slot firstInputSlot = getContainer().getSlots().get(0);
-		firstInputSlot.x = x - screen.getGuiLeft() + 4;
-		firstInputSlot.y = y + 42 - screen.getGuiTop() + 1;
+		firstInputSlot.x = x - screen.getLeftPos() + 4;
+		firstInputSlot.y = y + 42 - screen.getTopPos() + 1;
 
 		Slot secondInputSlot = getContainer().getSlots().get(1);
-		secondInputSlot.x = x - screen.getGuiLeft() + getWidth() / 2 - 9;
-		secondInputSlot.y = y + 42 - screen.getGuiTop() + 1;
+		secondInputSlot.x = x - screen.getLeftPos() + getWidth() / 2 - 9;
+		secondInputSlot.y = y + 42 - screen.getTopPos() + 1;
 
 		Slot resultSlot = getContainer().getSlots().get(2);
-		resultSlot.x = x - screen.getGuiLeft() + getWidth() - 2 - 3 - 18;
-		resultSlot.y = y + 42 - screen.getGuiTop() + 1;
+		resultSlot.x = x - screen.getLeftPos() + getWidth() - 2 - 3 - 18;
+		resultSlot.y = y + 42 - screen.getTopPos() + 1;
 	}
 
 	protected void renderCost(GuiGraphicsExtractor guiGraphics, int x, int y) {

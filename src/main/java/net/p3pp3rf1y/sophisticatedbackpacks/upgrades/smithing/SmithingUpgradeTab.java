@@ -109,7 +109,7 @@ public class SmithingUpgradeTab extends UpgradeSettingsTab<SmithingUpgradeContai
 	}
 
 	private void renderSlotBg(GuiGraphicsExtractor guiGraphics, Slot slot) {
-		GuiHelper.renderSlotsBackground(guiGraphics, slot.x + screen.getGuiLeft() - 1, slot.y + screen.getGuiTop() - 1, 1, 1);
+		GuiHelper.renderSlotsBackground(guiGraphics, slot.x + screen.getLeftPos() - 1, slot.y + screen.getTopPos() - 1, 1, 1);
 	}
 
 	@Override
@@ -127,9 +127,9 @@ public class SmithingUpgradeTab extends UpgradeSettingsTab<SmithingUpgradeContai
 		}
 
 		Slot resultSlot = getContainer().getResultSlot();
-		int inputSlotsY = resultSlot.y + screen.getGuiTop();
-		int additionalSlotX = getContainer().getAdditionalSlot().x + screen.getGuiLeft();
-		int resultSlotX = resultSlot.x + screen.getGuiLeft();
+		int inputSlotsY = resultSlot.y + screen.getTopPos();
+		int additionalSlotX = getContainer().getAdditionalSlot().x + screen.getLeftPos();
+		int resultSlotX = resultSlot.x + screen.getLeftPos();
 
 		int arrowX = getArrowX(additionalSlotX, resultSlotX);
 		int arrowY = getArrowY(inputSlotsY);
@@ -168,32 +168,32 @@ public class SmithingUpgradeTab extends UpgradeSettingsTab<SmithingUpgradeContai
 	@Override
 	protected void moveSlotsToTab() {
 		Slot templateSlot = getContainer().getTemplateSlot();
-		templateSlot.x = x - screen.getGuiLeft() + 4;
-		templateSlot.y = y - screen.getGuiTop() + 1 + 24;
+		templateSlot.x = x - screen.getLeftPos() + 4;
+		templateSlot.y = y - screen.getTopPos() + 1 + 24;
 
 		Slot baseSlot = getContainer().getBaseSlot();
 		baseSlot.x = templateSlot.x + 18;
-		baseSlot.y = y - screen.getGuiTop() + 1 + 24;
+		baseSlot.y = y - screen.getTopPos() + 1 + 24;
 
 		Slot additionalSlot = getContainer().getAdditionalSlot();
 		additionalSlot.x = baseSlot.x + 18;
-		additionalSlot.y = y - screen.getGuiTop() + 1 + 24;
+		additionalSlot.y = y - screen.getTopPos() + 1 + 24;
 
 		Slot resultSlot = getContainer().getResultSlot();
-		resultSlot.x = x - screen.getGuiLeft() + getWidth() - 2 - 3 - 18;
-		resultSlot.y = y - screen.getGuiTop() + 1 + 24;
+		resultSlot.x = x - screen.getLeftPos() + getWidth() - 2 - 3 - 18;
+		resultSlot.y = y - screen.getTopPos() + 1 + 24;
 	}
 
 	private boolean isHoveringRedCross(int mouseX, int mouseY) {
 		Slot additionalSlot = getContainer().getAdditionalSlot();
-		int arrowX = getArrowX(additionalSlot.x + screen.getGuiLeft(), getContainer().getResultSlot().x + screen.getGuiLeft());
-		int arrowY = getArrowY(additionalSlot.y + screen.getGuiTop());
+		int arrowX = getArrowX(additionalSlot.x + screen.getLeftPos(), getContainer().getResultSlot().x + screen.getLeftPos());
+		int arrowY = getArrowY(additionalSlot.y + screen.getTopPos());
 		return mouseX >= arrowX && mouseX < arrowX + RED_CROSS.getWidth() && mouseY >= arrowY && mouseY < arrowY + RED_CROSS.getHeight();
 	}
 
 	private boolean isHoveringEmptySlot(Slot slot, int mouseX, int mouseY) {
-		return mouseX >= slot.x + screen.getGuiLeft() && mouseX < slot.x + screen.getGuiLeft() + 16 && mouseY >= slot.y + screen.getGuiTop()
-				&& mouseY < slot.y + screen.getGuiTop() + 16 && slot.getItem().isEmpty();
+		return mouseX >= slot.x + screen.getLeftPos() && mouseX < slot.x + screen.getLeftPos() + 16 && mouseY >= slot.y + screen.getTopPos()
+				&& mouseY < slot.y + screen.getTopPos() + 16 && slot.getItem().isEmpty();
 	}
 
 	private void renderOnboardingTooltips(GuiGraphicsExtractor guiGraphics, int mouseX, int mouseY) {
