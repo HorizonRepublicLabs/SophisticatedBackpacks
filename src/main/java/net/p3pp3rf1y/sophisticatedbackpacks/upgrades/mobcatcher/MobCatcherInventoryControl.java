@@ -1,5 +1,6 @@
 package net.p3pp3rf1y.sophisticatedbackpacks.upgrades.mobcatcher;
 
+import com.mojang.blaze3d.platform.InputConstants;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
@@ -105,7 +106,7 @@ public class MobCatcherInventoryControl extends UpgradeInventoryControlBase {
 
 	@Override
 	public boolean mouseClicked(double mouseX, double mouseY, int button) {
-		if (button != 0 || !(menu instanceof BackpackContainer)) {
+		if (button != InputConstants.MOUSE_BUTTON_LEFT || !(menu instanceof BackpackContainer)) {
 			return false;
 		}
 		Optional<CapturedMob> clickedMob = getHoveredCapturedMob(MobCatcherStorage.getCapturedMobs(getBackpackWrapper()), mouseX, mouseY);

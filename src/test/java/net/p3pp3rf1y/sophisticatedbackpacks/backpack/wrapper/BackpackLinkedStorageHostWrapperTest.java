@@ -115,9 +115,9 @@ class BackpackLinkedStorageHostWrapperTest {
 		SharedConstants.tryDetectVersion();
 		Bootstrap.bootStrap();
 		Bootstrap.validate();
-		bindTestComponents(Items.DIAMOND, Items.DIRT, Items.STICK, Items.EXPERIENCE_BOTTLE, Items.POTION, Items.GLASS_BOTTLE, ModItems.BACKPACK.get(),
-				ModItems.GOLD_BACKPACK.get(), ModItems.DIAMOND_BACKPACK.get(), ModItems.ADVANCED_REFILL_UPGRADE.get(), ModItems.JUKEBOX_UPGRADE.get(),
-				ModItems.TANK_UPGRADE.get());
+		bindTestComponents(Items.DIAMOND, Items.DIRT, Items.STICK, ModItems.BACKPACK.get(), ModItems.GOLD_BACKPACK.get(), ModItems.DIAMOND_BACKPACK.get(),
+				ModItems.ADVANCED_REFILL_UPGRADE.get(), ModItems.JUKEBOX_UPGRADE.get(), ModItems.TANK_UPGRADE.get(), Items.EXPERIENCE_BOTTLE, Items.POTION,
+				Items.GLASS_BOTTLE);
 		loadDefaultConfig(Config.SERVER_SPEC);
 	}
 
